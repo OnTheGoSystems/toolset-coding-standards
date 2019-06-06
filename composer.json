@@ -10,6 +10,10 @@
       "name": "Jan Štětina",
       "email": "jan.s@onthegosystems.com",
       "homepage": "https://onthegosystems.com"
+    },
+    {
+      "name": "OnTheGoSystems",
+      "email": "hello@wpml.org"
     }
   ],
   "require": {
