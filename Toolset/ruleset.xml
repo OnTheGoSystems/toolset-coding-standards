@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<ruleset name="Toolset">
+    <description>Toolset coding standards, work in progress.</description>
+
+    <autoload>./../WordPress/PHPCSAliases.php</autoload>
+
+    <rule ref="WordPress"/>
+    <rule ref="VariableAnalysis" />
+
+    <!--
+        Do not apply these rules on non-PHP files.
+        Note: Twig templates are still not excluded, and they shouldn't be, because we have some plans for them.
+    -->
+    <exclude-pattern>*.js</exclude-pattern>
+    <exclude-pattern>*.mo</exclude-pattern>
+    <exclude-pattern>*.po</exclude-pattern>
+    <exclude-pattern>*.css</exclude-pattern>
+    <exclude-pattern>*.scss</exclude-pattern>
+
+    <!--
+        TODO add a sniff for missing translators: comment in Twig templates.
+        TODO add a sniff for mixed indents (except before docblocks): https://github.com/squizlabs/PHP_CodeSniffer/issues/547
+    -->
+
+    <!--
+        LOWERING PRIORITY
+    -->
+
+    <rule ref="Squiz.PHP.DisallowMultipleAssignments">
+        <type>warning</type>
+    </rule>
+
+    <!-- These are relevant but not critical... -->
+    <rule ref="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterStructureOpen">
+        <type>warning</type>
+    </rule>
+    <rule ref="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeOpenParenthesis">
+        <type>warning</type>
+    </rule>
+    <rule ref="Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword">
+        <type>warning</type>
+    </rule>
+
+
+    <!--
+        EXCLUSIONS
+    -->
+
+    <!-- We allow this: if( $var = something() ) { ... -->
+    <rule ref="WordPress.CodeAnalysis.AssignmentInCondition.Found">
+        <severity>0</severity>
+    </rule>
+
+    <!-- We hate multiple statement alignments. -->
+    <!-- TODO check for the correct way of alignment -->
+    <rule ref="Generic.Formatting.MultipleStatementAlignment.NotSameWarning">
+        <severity>0</severity>
+    </rule>
+    <rule ref="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned">
+        <severity>0</severity>
+    </rule>
+    <!-- We don't like these alignments in docblocks either. -->
+    <rule ref="Squiz.Commenting.FunctionComment.SpacingAfterParamType">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Do not follow silly filename rules of WordPress. TODO implement our own -->
+    <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+        <severity>0</severity>
+    </rule>
+    <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Do not enforce file comments everywhere - this is happening also in class files. TODO exclude only for PHP class files -->
+    <rule ref="Squiz.Commenting.FileComment.Missing">
+        <severity>0</severity>
+    </rule>
+
+    <!--
+        We allow this in JavaScript or in PHP anonymous functions:
+
+        some_call( function( arg1, arg2 ) {
+            ...
+        } );
+    -->
+    <rule ref="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PEAR.Functions.FunctionCallSignature.MultipleArguments">
+        <severity>0</severity>
+    </rule>
+
+    <!--
+        Dear WordPress, using interpolated variables for table names is okay. ;)
+        TODO: Adjust the rule to ignore this specific case only, if possible.
+    -->
+    <rule ref="WordPress.DB.PreparedSQL.NotPrepared">
+        <severity>0</severity>
+    </rule>
+
+    <!--
+        This sniff is wreaking havoc with simple /** @var type */ comments in class properties.
+        TODO: We need it but with some exceptions.
+    -->
+    <rule ref="Generic.Commenting.DocComment.MissingShort">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Not always practical, e.g. if commenting on individual array items with a single word... -->
+    <rule ref="Squiz.Commenting.InlineComment.InvalidEndChar">
+        <severity>0</severity>
+    </rule>
+
+
+    <!--
+        This is producing false alarms wherever the string 'meta_key' or 'meta_value' is used,
+        including unit tests.
+    -->
+    <rule ref="WordPress.DB.SlowDBQuery.slow_db_query_meta_key">
+        <severity>0</severity>
+    </rule>
+    <rule ref="WordPress.DB.SlowDBQuery.slow_db_query_meta_value">
+        <severity>0</severity>
+    </rule>
+
+
+    <!-- Not every parameter needs a comment, sometimes things are obvious. -->
+    <rule ref="Squiz.Commenting.FunctionComment.MissingParamComment">
+        <severity>0</severity>
+    </rule>
+
+    <!-- This produces false alarms because we don't use the nonce verfication directly. -->
+    <rule ref="WordPress.Security.NonceVerification.NoNonceVerification">
+        <severity>0</severity>
+    </rule>
+
+    <!--
+        We're using also slashes in hook names.
+        TODO: Still validate hook names, only allow slashes
+    -->
+    <rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
+        <severity>0</severity>
+    </rule>
+
+
+    <!--
+        TEST-SPECIFIC EXCLUSIONS
+    -->
+    <rule ref="Squiz.Commenting.ClassComment.Missing">
+        <exclude-pattern>*/phpunit/*</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.WP.GlobalVariablesOverride.OverrideProhibited">
+        <exclude-pattern>*/phpunit/*</exclude-pattern>
+    </rule>
+
+
+</ruleset>
