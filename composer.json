@@ -2,7 +2,7 @@
   "name": "otgs/toolset-coding-standards",
   "description": "A set of phpcs rules used in Toolset",
   "homepage": "https://github.com/OnTheGoSystems/toolset-coding-standards",
-  "type": "library",
+  "type": "phpcodesniffer-standard",
   "license": "GPL-3.0",
   "version": "0.2.0",
   "authors": [
