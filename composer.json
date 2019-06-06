@@ -1,0 +1,20 @@
+{
+  "name": "otgs/toolset-coding-standards",
+  "description": "A set of phpcs rules used in Toolset",
+  "homepage": "https://github.com/OnTheGoSystems/toolset-coding-standards",
+  "type": "library",
+  "license": "GPL-3.0",
+  "version": "0.2.0",
+  "authors": [
+    {
+      "name": "Jan Štětina",
+      "email": "jan.s@onthegosystems.com",
+      "homepage": "https://onthegosystems.com"
+    }
+  ],
+  "require": {
+    "roave/security-advisories": "dev-master",
+    "wp-coding-standards/wpcs": "*",
+    "sirbrillig/phpcs-variable-analysis": "^2.1"
+  }
+}
