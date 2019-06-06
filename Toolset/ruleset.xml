@@ -2,8 +2,6 @@
 <ruleset name="Toolset">
     <description>Toolset coding standards, work in progress.</description>
 
-    <autoload>./../WordPress/PHPCSAliases.php</autoload>
-
     <rule ref="WordPress"/>
     <rule ref="VariableAnalysis" />
 
