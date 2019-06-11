@@ -125,6 +125,11 @@
         <severity>0</severity>
     </rule>
 
+    <!-- We know what we're doing with the database. How about custom tables, huh? -->
+    <rule ref="WordPress.DB.DirectDatabaseQuery.DirectQuery">
+        <severity>0</severity>
+    </rule>
+
 
     <!-- Not every parameter needs a comment, sometimes things are obvious. -->
     <rule ref="Squiz.Commenting.FunctionComment.MissingParamComment">
