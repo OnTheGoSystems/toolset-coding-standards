@@ -156,5 +156,9 @@
         <exclude-pattern>*/phpunit/*</exclude-pattern>
     </rule>
 
+    <rule ref="WordPress.WP.GlobalVariablesOverride.Prohibited">
+        <exclude-pattern>*/phpunit/*</exclude-pattern>
+    </rule>
+
 
 </ruleset>
