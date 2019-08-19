@@ -113,6 +113,11 @@
         <severity>0</severity>
     </rule>
 
+    <!-- We're not using the @package tag in docblocks. -->
+    <rule ref="Squiz.Commenting.FileComment.MissingPackageTag">
+        <severity>0</severity>
+    </rule>
+
 
     <!--
         This is producing false alarms wherever the string 'meta_key' or 'meta_value' is used,
@@ -154,6 +159,10 @@
         TEST-SPECIFIC EXCLUSIONS
     -->
     <rule ref="Squiz.Commenting.ClassComment.Missing">
+        <exclude-pattern>*/phpunit/*</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Commenting.FunctionComment.Missing">
         <exclude-pattern>*/phpunit/*</exclude-pattern>
     </rule>
 
