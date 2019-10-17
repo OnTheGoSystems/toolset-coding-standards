@@ -6,6 +6,12 @@
     <rule ref="VariableAnalysis" />
 
     <!--
+        Steal bits and pieces from the NeutronStandard: https://github.com/Automattic/phpcs-neutron-standard.
+        We can't use all of it, it's focused on PHP 7.1+.
+    -->
+    <rule ref="NeutronStandard.AssignAlign.DisallowAssignAlign"/>
+
+    <!--
         Do not apply these rules on non-PHP files.
         Note: Twig templates are still not excluded, and they shouldn't be, because we have some plans for them.
     -->

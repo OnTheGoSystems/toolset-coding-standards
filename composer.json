@@ -26,5 +26,8 @@
   "scripts" : {
     "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths ../../..",
     "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths ../../.."
+  },
+  "require-dev": {
+    "automattic/phpcs-neutron-standard": "^1.5"
   }
 }
