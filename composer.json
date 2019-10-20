@@ -18,16 +18,16 @@
     }
   ],
   "require": {
-    "roave/security-advisories": "dev-master",
     "wp-coding-standards/wpcs": "*",
     "sirbrillig/phpcs-variable-analysis": "^2.1",
-    "automattic/vipwpcs": "^2.0"
+    "automattic/vipwpcs": "^2.0",
+    "automattic/phpcs-neutron-standard": "^1.5"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
   },
   "scripts" : {
     "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths ../../..",
     "post-update-cmd" : "\"vendor/bin/phpcs\" --config-set installed_paths ../../.."
-  },
-  "require-dev": {
-    "automattic/phpcs-neutron-standard": "^1.5"
   }
 }
