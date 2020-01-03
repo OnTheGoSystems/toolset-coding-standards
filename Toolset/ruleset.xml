@@ -160,6 +160,11 @@
         <severity>0</severity>
     </rule>
 
+    <!-- Short array syntax is allowed in Toolset. -->
+    <rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+        <severity>0</severity>
+    </rule>
+
 
     <!--
         TEST-SPECIFIC EXCLUSIONS
