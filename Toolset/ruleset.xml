@@ -15,11 +15,11 @@
         Do not apply these rules on non-PHP files.
         Note: Twig templates are still not excluded, and they shouldn't be, because we have some plans for them.
     -->
-    <exclude-pattern>*.js</exclude-pattern>
-    <exclude-pattern>*.mo</exclude-pattern>
-    <exclude-pattern>*.po</exclude-pattern>
-    <exclude-pattern>*.css</exclude-pattern>
-    <exclude-pattern>*.scss</exclude-pattern>
+    <exclude-pattern>*.js$</exclude-pattern>
+    <exclude-pattern>*.mo$</exclude-pattern>
+    <exclude-pattern>*.po$</exclude-pattern>
+    <exclude-pattern>*.css$</exclude-pattern>
+    <exclude-pattern>*.scss$</exclude-pattern>
 
     <!--
         TODO add a sniff for missing translators: comment in Twig templates.
